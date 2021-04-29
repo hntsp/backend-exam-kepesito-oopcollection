@@ -4,10 +4,11 @@ public class HeavyCavalry extends MilitaryUnit {
 
     static final int HIT_POINTS = 150;
     static final int DAMAGE = 20;
-    static boolean hasArmor = true;
+    static boolean HAS_ARMOR = true;
     static boolean isFirstAttack = true;
 
     public HeavyCavalry() {
+        super (HIT_POINTS, DAMAGE, HAS_ARMOR);
 
 
     }
@@ -16,7 +17,7 @@ public class HeavyCavalry extends MilitaryUnit {
     public int doDamage() {
         if(isFirstAttack) {
             isFirstAttack = false;
-            return doDamage()*3;
+            return super.doDamage() * 3;
         }
         return super.doDamage();
     }

@@ -4,20 +4,21 @@ public class Swordsman extends MilitaryUnit {
 
     static final int HIT_POINTS = 100;
     static final int DAMAGE = 10;
-    static boolean hasArmor = true;
+    //static boolean hasArmor = true;
     static boolean hasShield = true;
 
     public Swordsman(boolean hasArmor) {
+        super(HIT_POINTS, DAMAGE, hasArmor);
 
 
     }
 
 
     @Override
-    public int sufferDamage(int damage) {
-        if (hasShield) { damage = 0;
+    public void sufferDamage(int damage) {
+        if (hasShield) {
         hasShield = false;}
-        return super.sufferDamage(damage);
+        else super.sufferDamage(damage);
     }
 
 

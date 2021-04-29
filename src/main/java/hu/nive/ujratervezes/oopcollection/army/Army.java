@@ -8,26 +8,15 @@ public class Army {
 
     private List<MilitaryUnit> army = new ArrayList<>();
 
-
-   // public Army(List<MilitaryUnit> army) {
-     //   this.army = army;
-    //}
-
-    public Army() {
-    }
-
     public void addUnit(MilitaryUnit militaryUnit) {
-        army.add(new MilitaryUnit() {});
+        army.add(militaryUnit);
     }
 
-    public int damageAll(int damage) {
-        return 0;
-
+    public void damageAll(int damage) {
+        army.forEach(militaryUnit -> militaryUnit.sufferDamage(damage));
+        army.removeIf(militaryUnit -> militaryUnit.getHitPoints() < 25);
     }
 
-    public List<MilitaryUnit> getArmy() {
-        return army;
-    }
 
     public int getArmyDamage() {
         return army.stream().mapToInt(MilitaryUnit::doDamage).sum();

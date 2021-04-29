@@ -6,13 +6,13 @@ public abstract class MilitaryUnit {
     private int damage;
     private boolean hasArmor;
 
-    public MilitaryUnit() {
-        /*
+    public MilitaryUnit(int hitPoints, int damage, boolean hasArmor) {
+
         this.hitPoints = hitPoints;
         this.damage = damage;
         this.hasArmor = hasArmor;
 
-         */
+
     }
 
 
@@ -21,10 +21,10 @@ public abstract class MilitaryUnit {
         return damage;
     }
 
-    public int sufferDamage(int damage) {
+    public void sufferDamage(int damage) {
 
-        if (hasArmor) return hitPoints - (damage / 2);
-        else {return hitPoints - damage;}
+        if (hasArmor) hitPoints = hitPoints - (damage / 2);
+        else {hitPoints = hitPoints - damage;}
     }
 
     public  int getHitPoints() {
